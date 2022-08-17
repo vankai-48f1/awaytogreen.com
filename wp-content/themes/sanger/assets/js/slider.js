@@ -41,9 +41,9 @@
 
     $('.slider-primary').on('init', function (event, slick) {
       animateScaleX(0)
-      animateFadeInUp(0);
+      animateFadeInUp(0, slideTime);
       $(sliderPrimaryItems[0]).find(".slider-primary__social").css({
-        "animation-name": "fadeInUp"
+        "animation-name": "sangerFadeInUp"
       });
     });
 
@@ -52,7 +52,7 @@
       $(sliderPrimaryItems[elementIndex]).find(".slider-primary__title span").css({
         "animation-duration": "350ms",
         "animation-timing-function": "ease-out",
-        "animation-name": "fadeInTop"
+        "animation-name": "sangerFadeInTop"
       });
 
       // titleAboveBlock.find('span').css('animation-name', 'fadeInTop')
@@ -68,8 +68,8 @@
         "animation-timing-function": "ease",
       });
 
-      titleAboveBlock.find('span').css('animation-name', 'fadeInUpDouble')
-      titleBelowBlock.find('span').css('animation-name', 'fadeInUp')
+      titleAboveBlock.find('span').css('animation-name', 'sangerFadeInUpDouble')
+      titleBelowBlock.find('span').css('animation-name', 'sangerFadeInUp')
     }
 
     // Animation Scale X
@@ -77,7 +77,7 @@
       $(sliderPrimaryItems[elementIndex]).find(".slider-primary__image").css({
         "animation-duration": "500ms",
         "animation-timing-function": "cubic-bezier(.69,0,1,1)",
-        "animation-name": "scaleX",
+        "animation-name": "sangerScaleX",
 
       });
     }
@@ -86,7 +86,7 @@
       $(sliderPrimaryItems[elementIndex]).find(".slider-primary__image").css({
         "animation-duration": "500ms",
         "animation-timing-function": "cubic-bezier(0,0,1,-0.12)",
-        "animation-name": "scaleXReverser",
+        "animation-name": "sangerScaleXReverser",
       });
     }
 
@@ -111,9 +111,16 @@
     $('.slider-primary').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
       animateScaleXReverser(currentSlide);
       animateFadeInTop(currentSlide);
+      $(sliderPrimaryItems[currentSlide]).find(".slider-primary__social").css({
+        "animation-name": "sangerFadeOut"
+      });
+
       setTimeout(() => {
         animateScaleX(nextSlide);
         animateFadeInUp(nextSlide, slideTime);
+        $(sliderPrimaryItems[nextSlide]).find(".slider-primary__social").css({
+          "animation-name": "sangerFadeInUp"
+        });
         // $('.slider-primary').slick("setOption", "autoplaySpeed", slideTime.autoplaySpeed);
       }, 1000);
     })

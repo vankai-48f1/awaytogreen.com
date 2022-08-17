@@ -10,7 +10,7 @@
                 /**
                  * Logo
                  */
-                $site_logo = get_theme_mod('logo-footer');
+                $site_logo = get_theme_mod('logo-light');
                 $size_logo = get_theme_mod('size-logo');
                 ?>
                 <div class="footer-midle site-info" <?php echo $size_logo ? 'style="max-width:' + $size_logo + '"' : ""; ?>>

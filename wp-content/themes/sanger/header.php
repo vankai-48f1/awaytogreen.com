@@ -98,5 +98,5 @@
             </div>
         </div>
         <!-- Header fixed right partial-->
-        <?php get_template_part("template-parts/header/fixed", "right") ?>
+        <?php get_template_part("template-parts/header/panel", "bar") ?>
     </header>

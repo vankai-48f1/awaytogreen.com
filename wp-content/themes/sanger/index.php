@@ -12,11 +12,6 @@ Template Name: Home
             <div class="hm-intro">
                 <!-- slider -->
                 <?php get_template_part('template-parts/slider/slider', 'intro-home'); ?>
-                <div class="hm-intro__polygon">
-                    <div class="hm-intro__polygon-white"></div>
-                    <div class="hm-intro__polygon-green-light"></div>
-                    <div class="hm-intro__polygon-green-dark"></div>
-                </div>
             </div>
 
             <!-- Section 1 -->

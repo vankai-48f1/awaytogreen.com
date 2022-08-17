@@ -24,8 +24,10 @@
                     </div>
                 </a>
                 <!-- Social -->
-                <div class="slider-primary__social">
-                    <?php get_template_part('template-parts/content', 'social') ?>
+                <div class="slider-primary__social-wrap">
+                    <div class="slider-primary__social">
+                        <?php get_template_part('template-parts/content', 'social') ?>
+                    </div>
                 </div>
             </div>
         <?php endwhile; ?>

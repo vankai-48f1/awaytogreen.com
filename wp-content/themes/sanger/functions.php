@@ -289,19 +289,19 @@ function mtem_customize_options($wp_customize)
     $wp_customize->add_setting('logo', array('default' => ''));
     $wp_customize->add_control(
         new WP_Customize_Image_Control($wp_customize, 'logo', array(
-            'label' => 'Logo',
+            'label' => 'Logo Dark',
             'section' => 'site-logo',
             'settings' => 'logo'
         ))
     );
     
     // Logo footer
-    $wp_customize->add_setting('logo-footer', array('default' => ''));
+    $wp_customize->add_setting('logo-light', array('default' => ''));
     $wp_customize->add_control(
-        new WP_Customize_Image_Control($wp_customize, 'logo-footer', array(
-            'label' => 'Logo Footer',
+        new WP_Customize_Image_Control($wp_customize, 'logo-light', array(
+            'label' => 'Logo Light',
             'section' => 'site-logo',
-            'settings' => 'logo-footer'
+            'settings' => 'logo-light'
         ))
     );
 
