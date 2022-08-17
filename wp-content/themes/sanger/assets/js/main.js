@@ -20,7 +20,8 @@
 
   $(document).ready(function () {
     // Open panel bar
-    $('.hd-hamburger-btn').on('click', function () {
+    $('.hd-hamburger-btn').on('click', function (e) {
+      e.preventDefault();
       $('#panel-bar').addClass('panel-open')
     })
     // Close panel bar
