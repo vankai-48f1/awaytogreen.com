@@ -13,7 +13,7 @@
                 $site_logo = get_theme_mod('logo-light');
                 $size_logo = get_theme_mod('size-logo');
                 ?>
-                <div class="footer-midle site-info" <?php echo $size_logo ? 'style="max-width:' + $size_logo + '"' : ""; ?>>
+                <div class="footer-midle site-info" <?php echo $size_logo ? 'style="max-width: ' . $size_logo . 'px"' : '' ?>>
                     <div class="footer-midle__inner footer-logo">
                         <div class="site-info__logo-wrap">
                             <div class="site-info__logo">
@@ -39,7 +39,7 @@
 <script src="<?php echo get_template_directory_uri() ?>/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/assets/vendor/slick/slick.js"></script>
 <script src="<?php echo get_template_directory_uri() ?>/assets/js/main.js"></script>
-<script src="<?php echo get_template_directory_uri() ?>/assets/js/slider.js"></script>
+<script src="<?php echo get_template_directory_uri() ?>/assets/js/slider.js" type="module"></script>
 
 <?php wp_footer() ?>
 </body>

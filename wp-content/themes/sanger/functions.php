@@ -11,6 +11,17 @@ add_image_size('post-large', 900, 600, true);
 
 add_image_size('post-small', 250, 200, true);
 
+function my_custom_wc_theme_support()
+{
+
+    add_theme_support('woocommerce');
+
+    add_theme_support('wc-product-gallery-lightbox');
+
+    add_theme_support('wc-product-gallery-slider');
+    add_theme_support('wc-product-gallery-zoom');
+}
+add_action('after_setup_theme', 'my_custom_wc_theme_support');
 
 // Khai báo menu
 function register_my_menu()
@@ -26,7 +37,17 @@ function mtem_blog_widgets_init()
     register_sidebar(array(
         'name'            => __('Sidebar', 'sidebar'),
         'id'             => 'sidebar',
-        'description'     => __('Sidebar')
+        'description'     => __('Sidebar'),
+        'before_widget'        => '<div class="mb-4">',
+        'after_widget'        => '</div>',
+    ));
+
+    register_sidebar(array(
+        'name'            => __('Sidebar Woocommerce', 'sidebar woocommerce'),
+        'id'             => 'sidebar-woocommerce',
+        'description'     => __('Sidebar for woocommerce product'),
+        'before_widget'        => '<div class="mb-4">',
+        'after_widget'        => '</div>',
     ));
 }
 add_action('widgets_init', 'mtem_blog_widgets_init');
@@ -70,20 +91,37 @@ function mtem_blog_related_post($title = 'Bài viết liên quan', $count = 5)
     $post_list = '';
     foreach ($related_posts as $related) {
 
-        $post_list .= '<div class="media mb-4 ">';
-        $post_list .= '<img class="mr-3 img-thumbnail" style="width: 150px" src="' . get_the_post_thumbnail_url($related->ID, 'post-small') . '" alt="Generic placeholder image">';
-        $post_list .= '<div class="media-body align-self-center">';
-        $post_list .= '<h5 class="mt-0"><a href="' . get_permalink($related->ID) . '">' . $related->post_title . '</a></h5>';
-        $post_list .= get_the_category($related->ID)[0]->cat_name;
+        // $post_list .= '<div class="col-md-6 col-12">';
+        // $post_list .= '<img class="mr-3 img-thumbnail" style="width: 150px" src="' . get_the_post_thumbnail_url($related->ID, 'post-small') . '" alt="Generic placeholder image">';
+        // $post_list .= '<div class="media-body align-self-center">';
+        // $post_list .= '<h5 class="mt-0"><a href="' . get_permalink($related->ID) . '">' . $related->post_title . '</a></h5>';
+        // $post_list .= get_the_category($related->ID)[0]->cat_name;
 
+        // $post_list .= '</div>';
+
+        $post_list .= '<div class="col-md-6 col-12">';
+        $post_list .= '<article class="article-item">';
+        $post_list .= '<div class="article-item__wrapper">';
+        $post_list .= '<a href="' . get_the_permalink($related->ID) . '" class="article-item__thumb">';
+        $post_list .= get_the_post_thumbnail($related->ID, 'blog-thumbnail',  ['class' => 'img-absolute-option']);
+        $post_list .= '</a>';
+        $post_list .= '<div class="article-item__meta">';
+        $post_list .= '<div class="article-latest__top mb-2">';
+        $post_list .= '<a href="' . get_category_link(get_the_category($related->ID)[0]->term_id) . '" class="font-secondary-medium-01 color-dark-01 text-upper">' . get_the_category($related->ID)[0]->name . '</a>';
         $post_list .= '</div>';
+        $post_list .= '</div>';
+        $post_list .= '<a href="' . get_the_permalink($related->ID) . '" class="article-item__content">';
+        $post_list .= '<h2 class="article-latest__title font-secondary-medium-06 color-dark-01 mb-3">' . get_the_title($related->ID) . '</h2>';
+        $post_list .= '</a>';
+        $post_list .= '</div>';
+        $post_list .= '</article>';
         $post_list .= '</div>';
     }
 
     return sprintf('
-			<div class="card my-4">
-				<h4 class="card-header">%s</h4>
-				<div class="card-body">%s</div>
+			<div class="post-related my-4">
+				<h3 class="font-secondary-medium-07 mb-4">%s</h3>
+				<div class="row">%s</div>
 			</div>
 		', $title, $post_list);
 }
@@ -113,9 +151,11 @@ if (!function_exists('mtem_pagination')) {
 
 // Pagination
 if (!function_exists('post_pagination')) {
-    function post_pagination($paged = '', $max_page = '')
+    function post_pagination($paged = '', $max_page = '', $wp_query = null)
     {
-        global $wp_query;
+        if (!$wp_query) {
+            global $wp_query;
+        }
 
         if (!$paged) {
             $paged = (get_query_var('paged')) ? get_query_var('paged') : ((get_query_var('page')) ? get_query_var('page') : 1);
@@ -234,7 +274,7 @@ function mtem_get_related_post($count = 6)
                 </div>
             <?php endwhile; ?>
         </div>
-<?php endif;
+    <?php endif;
     wp_reset_postdata();
 }
 
@@ -294,7 +334,7 @@ function mtem_customize_options($wp_customize)
             'settings' => 'logo'
         ))
     );
-    
+
     // Logo footer
     $wp_customize->add_setting('logo-light', array('default' => ''));
     $wp_customize->add_control(
@@ -305,13 +345,13 @@ function mtem_customize_options($wp_customize)
         ))
     );
 
-    $wp_customize->add_setting('logo-size', array('default' => ''));
-    $wp_customize->add_control('logo-size', array(
+    $wp_customize->add_setting('size-logo', array('default' => ''));
+    $wp_customize->add_control('size-logo', array(
         'label' => 'Logo Size',
         'section' => 'site-logo',
-        'type' => 'text',
-        'description' => 'Default 130(px)',
-        'settings' => 'logo-size'
+        'type' => 'number',
+        'description' => 'Default width 130(px)',
+        'settings' => 'size-logo'
     ));
 }
 add_action('customize_register', 'mtem_customize_options');
@@ -326,4 +366,21 @@ if (function_exists('acf_add_options_page')) {
             'icon_url'      => 'dashicons-admin-generic',
         )
     );
+}
+
+function my_get_current_user_roles()
+{
+
+    if (is_user_logged_in()) {
+
+        $user = wp_get_current_user();
+
+        $roles = $user->roles;
+
+        return $roles; // This will returns an array
+
+    } else {
+
+        return array();
+    }
 }

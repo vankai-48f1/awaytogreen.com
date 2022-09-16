@@ -1,42 +1,53 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> >
-	<!-- Title -->
-	<h1 class="mt-4"><?php the_title() ?></h1>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<!-- Author -->
-	<p class="lead">
-	  by
-	  <?php the_author_posts_link() ?>
-	  in   
-	  <?php the_category(' &nbsp;&#47;&nbsp; ') ?>
-	</p>
 
-	<hr>
+    <!-- Post Content -->
+    <div class="post-body">
+        <?php the_content() ?>
+    </div>
+    <!-- Tags -->
+    <div class="post-tags">
+        <?php the_tags('', '') ?>
+    </div>
 
-	<!-- Date/Time -->
-	<p>Posted on <?php echo get_the_date() ?></p>
+    <!-- navigation prev, next -->
+    <div class="post-nav">
+        <div class="post-nav__item post-nav__item--previous">
+            <?php if (get_next_post_link('%link', 'Previous', true)) : ?>
+                <div class="mg-bt-1">
+                    <?php next_post_link('%link', '<span class="prev-icon">Previous</span>', true); ?>
+                </div>
+                <div class="post-nav__title mg-bt-1">
+                    <a href="<?php echo get_next_post()->guid ?>" class="font-secondary-medium-04 color-dark-01">
+                        <?php echo get_next_post()->post_title ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
 
-	<hr>
+        <div class="post-nav__item post-nav__item--next">
+            <?php if (get_previous_post_link('%link', 'Next', true)) : ?>
+                <div class="mg-bt-1">
+                    <?php previous_post_link('%link', '<span class="next-icon">Next</span>', true); ?>
+                </div>
+                <div class="post-nav__title mg-bt-1">
+                    <a href="<?php echo get_previous_post()->guid ?>" class="font-secondary-medium-04 color-dark-01">
+                        <?php echo get_previous_post()->post_title ?>
+                    </a>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <!-- Commnets -->
+    <div class="post-sg__comment">
+        <?php
+        if (comments_open() || get_comments_number()) {
+            comments_template();
+        }
+        ?>
+    </div>
 
-	<!-- Preview Image -->
-	<?php the_post_thumbnail('post-large',  ['class' => 'fuild-img' ]) ?>
+    <!-- Related Post -->
+    <?php echo mtem_blog_related_post('You May Also Like', 2) ?>
 
-	<hr>
-
-	<!-- Post Content -->
-	<?php the_content() ?>
-
-	<!-- Tags -->
-	<?php the_tags() ?>
-	<!-- Related Post -->
-	<?php echo mtem_blog_related_post('Bài viết liên quan', 4) ?>
-
-	<!-- Commnets -->
-	<hr>
-	<div class="mt-3">
-		<?php 
-			if ( comments_open() || get_comments_number() ) {
-				comments_template();
-			}
-		?>
-	</div>
 </article>

@@ -1,37 +1,25 @@
 <?php get_header() ?>
+<!-- Header -->
+<?php get_template_part('template-parts/header/header', 'page'); ?>
 <!-- Page Content -->
-  <div class="container">
-    
-      <div class="row">
+<div class="category">
+    <div class="container">
+        <?php if (have_posts()) : ?>
+            <div class="row">
+                <?php while (have_posts()) : the_post(); ?>
 
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-          
-          <h1 class="my-2 mb-4 page-header">
-            Danh mục:
-            <small><?php single_cat_title() ?></small>
-          </h1>
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <?php get_template_part('template-parts/article', 'part'); ?>
+                    </div>
 
-          <?php if ( have_posts() ) : ?>
-
-            <?php while ( have_posts() ) : the_post(); ?>
-
-                  <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-
-            <?php endwhile; ?>
-
-          <?php endif; ?>
-
-          <!-- Pagination -->
-          <?php mtem_pagination() ?>
-
-        </div>
-
-        <?php get_sidebar() ?>
-
-      </div>
-      <!-- /.row -->
-
-  </div>
+                <?php endwhile; ?>
+            </div>
+            <!-- /.row -->
+        <?php endif; ?>
+        
+        <!-- Pagination -->
+        <?php post_pagination() ?>
+    </div>
+</div>
 <!-- /.container -->
 <?php get_footer() ?>

@@ -125,5 +125,77 @@
       }, 1000);
     })
 
+
+    // Slider Secondary
+    $('.slider-secondary').slick({
+      dots: false,
+      arrows: true,
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      speed: 1500,
+    })
+
+    $('.about-member__list').slick({
+      dots: true,
+      arrows: true,
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      // autoplay: true,
+      autoplaySpeed: 5000,
+      appendDots: $('.about-member__dots'),
+      customPaging: function (slider, i) {
+    
+          let avatar = $(slider.$slides[i]).find('input[name=member_avatar]').val();
+          let views = `<div class="member-dot-image"><img class="member-avatar" src="${avatar}" alt=""></div>`;
+    
+          return views;
+      },
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+          }
+        }
+      ]
+    })
+
+    // Slider tertiary
+    $('.about-partner__list').slick({
+      dots: true,
+      arrows: true,
+      infinite: false,
+      slidesToShow: 6,
+      slidesToScroll: 6,
+      // autoplay: true,
+      autoplaySpeed: 5000,
+    })
+
+    // Slider fourth
+    $('.about-team__list--slider').slick({
+      dots: false,
+      arrows: false,
+      infinite: false,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      // autoplay: true,
+      autoplaySpeed: 5000,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+          }
+        },
+        {
+          breakpoint: 576,
+          settings: {
+            slidesToShow: 1,
+          }
+        }
+      ]
+    })
   }); // end ready document
 })(jQuery)

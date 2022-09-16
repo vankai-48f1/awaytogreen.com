@@ -1,9 +1,3 @@
-<?php
-/*
-Template Name Sample: Archives
-*/
-?>
-
 <?php get_header() ?>
 <!-- Page Content -->
   <div class="container">
@@ -12,7 +6,7 @@ Template Name Sample: Archives
 
         <!-- Blog Entries Column -->
         <div class="col-md-8">
-          
+            ádfasfdf
           <h1 class="my-2 mb-4 page-header">
             <?php the_title() ?>
           </h1>

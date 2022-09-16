@@ -45,9 +45,9 @@
 .slick-prev:focus,
 .slick-next:hover,
 .slick-next:focus {
-  color: transparent;
+  /* color: transparent; */
   outline: none;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 .slick-prev:hover:before,
 .slick-prev:focus:before,

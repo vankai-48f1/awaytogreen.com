@@ -18,6 +18,11 @@
     e.stopPropagation();
   })
 
+  // Replace input type submit contact form 7 to button
+  const inputSubmitForm7Val = $('.wpcf7-form [type="submit"]').val();
+  $('.wpcf7-form [type="submit"]').hide();
+  $(`<button type="submit">${inputSubmitForm7Val}</button>`).insertAfter('.wpcf7-form [type="submit"]');
+
   $(document).ready(function () {
     // Open panel bar
     $('.hd-hamburger-btn').on('click', function (e) {
@@ -27,6 +32,20 @@
     // Close panel bar
     $('.panel-bar__close-btn').on('click', function () {
       $('#panel-bar').removeClass('panel-open')
+    })
+
+
+    // change location map
+    $('.contact-office__btn').on('click', function () {
+      let ggMapUrl = new URL('https://maps.google.com/maps?q=coordinates&output=embed');
+      let coordinates = $(this).find('input[name=office_coordinates]').val();
+
+      $([document.documentElement, document.body]).animate({
+        scrollTop: $(".contact-map").offset().top
+      }, 300, 'linear');
+
+      ggMapUrl.searchParams.set('q', coordinates);
+      $('.contact__information-map > iframe').attr('src', ggMapUrl.toString());
     })
   })
 })(jQuery)
