@@ -213,6 +213,7 @@ body {
   display: inline-block;
   vertical-align: middle;
   padding: 0;
+  color: #000;
 }
 
 .header-right__inner button:not(:first-child) {

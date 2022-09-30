@@ -49,11 +49,11 @@
                                             <article class="hm-section-3__post">
                                                 <a href="<?php echo $link_post ? $link_post : '#'; ?>" class="hm-section-3__post-name">
                                                     <h3 class="font-secondary-medium-04 color-dark-01"><?php echo $name; ?></h3>
-                                                    <?php if ($year) : ?>
-                                                        <div class="hm-section-3__post-year font-secondary-medium-04 color-dark-01"><?php echo $year; ?></div>
-                                                    <?php endif; ?>
+                                                    <!-- < ?php if ($year) : ?>
+                                                        <div class="hm-section-3__post-year font-secondary-medium-04 color-dark-01">< ?php echo $year; ?></div>
+                                                    < ?php endif; ?> -->
                                                 </a>
-                                                <div class="hm-section-3__post-cate color-light-02 font-primary-light-03 "><?php echo $category ?></div>
+                                                <!-- <div class="hm-section-3__post-cate color-light-02 font-primary-light-03 ">< ?php echo $category ?></div> -->
                                                 <div class="hm-section-3__post-desc color-dark-02 font-primary-light-04"><?php echo $excerpt ?></div>
                                             </article>
                                         </div>

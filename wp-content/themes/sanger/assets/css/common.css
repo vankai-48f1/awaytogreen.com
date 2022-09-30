@@ -33,6 +33,19 @@
   src: url("./Fonts/SofiaPro/Sofia-Pro-Black.ttf");
 }
 
+/* Font Nunito sans */
+@font-face {
+  font-family: "NunitoSans-Regular";
+  src: url("./Fonts/Nunito_Sans/NunitoSans-Regular.ttf");
+}
+@font-face {
+  font-family: "NunitoSans-Light";
+  src: url("./Fonts/Nunito_Sans/NunitoSans-Light.ttf");
+}
+@font-face {
+  font-family: "NunitoSans-Bold";
+  src: url("./Fonts/Nunito_Sans/NunitoSans-Bold.ttf");
+}
 :root {
   /* color variable */
   --color-text_dark: #1f1f1f;
@@ -52,9 +65,9 @@
   --color-tertiary: #ff035e;
 
   /* font primary style variable */
-  --font-primary-regular: "Europa-Regular", sans-serif;
-  --font-primary-light: "Europa-Light", sans-serif;
-  --font-primary-bold: "Europa-Bold", sans-serif;
+  --font-primary-regular: "NunitoSans-Regular", sans-serif;
+  --font-primary-light: "NunitoSans-Light", sans-serif;
+  --font-primary-bold: "NunitoSans-Bold", sans-serif;
 
   /* font secondary style variable */
   --font-secondary-regular: "Sofia-Pro-Regular", sans-serif;

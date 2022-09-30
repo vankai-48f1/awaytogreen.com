@@ -10,7 +10,7 @@
 
         <h2 class="article-latest__title font-secondary-medium-06 color-dark-01 mb-3"><?php the_title() ?></h2>
         <div class="article-latest__content font-primary-light-04 color-light-03 mb-3">
-            <?php echo get_the_excerpt() ?>
+            <?php echo wp_trim_words(get_the_excerpt(), 20) ?>
         </div>
         <div class="article-latest__read-more">
             <span class="read-more-arrow color-dark-01"></span>

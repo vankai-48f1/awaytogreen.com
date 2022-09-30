@@ -16,4 +16,4 @@
             <?php endif; ?>
         <?php endwhile; ?>
     </ul>
-<?php endif; ?>
+<?php

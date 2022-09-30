@@ -9,7 +9,7 @@
             $site_logo = get_theme_mod('logo');
             $size_logo = get_theme_mod('size-logo');
             ?>
-            <div class="panel-bar__logo site-info" <?php echo $size_logo ? 'style="max-width:' + $size_logo + '"' : ""; ?>>
+            <div class="panel-bar__logo site-info" <?php echo $size_logo ? 'style="max-width:' . $size_logo . '"' : ""; ?>>
                 <?php if ($site_logo) : ?>
                     <a href="<?php echo home_url() ?>" class="panel-bar__link">
                         <div class="site-info__logo-wrap">
