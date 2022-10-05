@@ -532,6 +532,10 @@ body {
 .slider-primary__social li:not(:last-child) {
   margin-right: 15px;
 }
+
+.slider-primary__social .social__item-name {
+  display: none;
+}
 /* 
 .slider-primary__title-above span {
   animation-name: fadeUpDouble;
@@ -1894,4 +1898,9 @@ body {
 
 .single-portfolio .post-nav__item .next-icon::after {
   content: '\E9A4';
+}
+
+/* ==== Page Genarate ===== */
+.page-body {
+  text-align: justify;
 }

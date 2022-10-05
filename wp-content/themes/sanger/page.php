@@ -15,16 +15,18 @@
 
             <div class="container">
 
-                <div class="row">
+                <div class="row py-5">
 
                     <!-- Blog Entries Column -->
-                    <div class="col-md-8">
-
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10">
+                        <div class="page-body">
                         <?php get_template_part('template-parts/content-page', get_post_format()); ?>
+                        </div>
 
                     </div>
-
-                    <?php get_sidebar() ?>
+                    <div class="col-md-1"></div>
+                    <!--< ?php get_sidebar() ?>-->
 
                 </div>
                 <!-- /.row -->

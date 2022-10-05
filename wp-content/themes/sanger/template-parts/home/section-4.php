@@ -11,7 +11,7 @@
                 <?php $content_section_4['category'] ? mtem_get_latest_post($content_section_4['category'], 3) : null; ?>
             </div>
             <div class="hm-section-4__see-all mtext-center">
-                <a href="<?php echo $content_section_4['category'] ? get_category_link($content_section_4['category']) : '#' ?>" class="button-type-01">View All Article</a>
+                <a href="<?php echo $content_section_4['category'] ? get_category_link($content_section_4['category']) : '#' ?>" class="button-type-01">View All Articles</a>
             </div>
         </div>
     </div>

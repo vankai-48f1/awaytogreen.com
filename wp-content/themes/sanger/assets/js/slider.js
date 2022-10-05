@@ -137,7 +137,7 @@
     })
 
     $('.about-member__list').slick({
-      dots: true,
+      dots: false,
       arrows: true,
       infinite: false,
       slidesToShow: 1,

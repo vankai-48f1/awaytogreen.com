@@ -17,8 +17,8 @@
                     <div class="hm-section-1__main-content font-primary-light-02 mb-3">
                         <?php echo $content_section_1['description'] ?>
                     </div>
-                    <a href="<?php echo $content_section_1['link']['url'] ? $content_section_1['link']['url'] : '#' ?>" class="color-dark-01 read-more-01">
-                        <?php echo $content_section_1['link']['title'] ? $content_section_1['link']['title'] : 'Read More' ?>
+                    <a href="<?php echo $content_section_1['link_section_1']['url'] ? $content_section_1['link_section_1']['url'] : '#' ?>" class="color-dark-01 read-more-01">
+                        <?php echo $content_section_1['link_section_1']['title'] ? $content_section_1['link_section_1']['title'] : 'Read More' ?>
                     </a>
                 </div>
             </div>
