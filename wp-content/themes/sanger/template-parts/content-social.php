@@ -10,7 +10,7 @@
                 <li class="social__item">
                     <a href="<?php echo $link_social ? $link_social : "#"; ?>">
                         <i class="<?php echo $icon['value'] ?>"></i>
-                        <span class="social__item-name"><?php echo $icon['label']; ?></span>
+                         <span class="social__item-name"><?php echo $icon['label']; ?></span> 
                     </a>
                 </li>
             <?php endif; ?>

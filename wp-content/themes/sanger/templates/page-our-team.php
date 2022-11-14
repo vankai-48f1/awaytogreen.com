@@ -78,6 +78,49 @@ get_header();
                 <h2 class="font-secondary-medium-02 color-dark-01 mb-5"><?php echo get_field('see_more')['title'] ?></h2>
                 <a href="<?php echo get_field('see_more')['link'] ?>" class="button-type-02"></a>
             </div>
+            <!-- Adviser -->
+            <div class="adviser">
+                <div class="about-adviser">
+                    <div class="about-adviser__container">
+                        <?php
+                        if (have_rows('adviser')) : ?>
+                            <div class="about-adviser__list">
+                                <?php while (have_rows('adviser')) : the_row(); ?>
+                                    <?php
+                                    $name = get_sub_field('name');
+                                    $position = get_sub_field('position');
+                                    $image = get_sub_field('image');
+                                    $profile = get_sub_field('profile');
+                                    ?>
+                                    <div class="about-adviser__item">
+                                        <div class="about-adviser__item-inner">
+                                            <div class="about-adviser__item-row">
+                                                <div class="about-adviser__item-col">
+                                                    <div class="about-adviser__avatar-wrap">
+                                                        <div class="about-adviser__avatar">
+                                                            <?php if ($image) : ?>
+                                                                <img src="<?php echo $image['url'] ?>" class="" alt="<?php echo $image['title'] ?>">
+                                                            <?php endif; ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="about-adviser__item-col">
+                                                    <div class="about-adviser__info">
+                                                        <div class="about-adviser__name font-primary-bold-05 color-dark-01 mb-1"><?php echo $name ?></div>
+                                                        <div class="about-adviser__position font-secondary-medium-03"><?php echo $position ?></div>
+                                                        <div class="about-adviser__profile font-primary-light-02 color-light-03"><?php echo $profile ?></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
         <?php endwhile; ?>
     </div>
 <?php endif; ?>

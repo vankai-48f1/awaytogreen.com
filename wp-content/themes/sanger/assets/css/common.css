@@ -46,6 +46,14 @@
   font-family: "NunitoSans-Bold";
   src: url("./Fonts/Nunito_Sans/NunitoSans-Bold.ttf");
 }
+@font-face {
+  font-family: "NunitoSans-Black";
+  src: url("./Fonts/Nunito_Sans/NunitoSans-Black.ttf");
+}
+@font-face {
+  font-family: "NunitoSans-SemiBold";
+  src: url("./Fonts/Nunito_Sans/NunitoSans-SemiBold.ttf");
+}
 :root {
   /* color variable */
   --color-text_dark: #1f1f1f;
@@ -59,7 +67,7 @@
   --color-light-05: #9e9e9e;
 
   --color-yellow-01: #fcb40e;
-  --color-text_link: #febf2d;
+  --color-text_link: #006738;
   --color-primary: #00993c;
   --color-secondary: #eb8a44;
   --color-tertiary: #ff035e;
@@ -70,10 +78,11 @@
   --font-primary-bold: "NunitoSans-Bold", sans-serif;
 
   /* font secondary style variable */
-  --font-secondary-regular: "Sofia-Pro-Regular", sans-serif;
-  --font-secondary-light: "Sofia-Pro-Light", sans-serif;
-  --font-secondary-bold: "Sofia-Pro-Bold", sans-serif;
-  --font-secondary-black: "Sofia-Pro-Black", sans-serif;
+  --font-secondary-regular: "NunitoSans-Regular", sans-serif;
+  --font-secondary-light: "NunitoSans-Light", sans-serif;
+  --font-secondary-bold: "NunitoSans-Bold", sans-serif;
+  --font-secondary-black: "NunitoSans-Black", sans-serif;
+  --font-secondary-semibold: "NunitoSans-SemiBold", sans-serif;
 }
 
 html,
@@ -729,6 +738,26 @@ a:hover {
 /* ===== Semibold ===== */
 
 /* ===== Bold ===== */
+.font-primary-bold-01 {
+  font-family: var(--font-primary-bold);
+  font-size: 16px;
+}
+.font-primary-bold-02 {
+  font-family: var(--font-primary-bold);
+  font-size: 18px;
+}
+.font-primary-bold-03 {
+  font-family: var(--font-primary-bold);
+  font-size: 21px;
+}
+.font-primary-bold-04 {
+  font-family: var(--font-primary-bold);
+  font-size: 24px;
+}
+.font-primary-bold-05 {
+  font-family: var(--font-primary-bold);
+  font-size: 28px;
+}
 .font-primary-bold-24 {
   font-family: var(--font-primary-bold);
   font-size: 24px;
@@ -772,48 +801,49 @@ a:hover {
 /* ===== Medium ===== */
 /* ===== Medium ===== */
 .font-secondary-medium-01 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.2;
 }
 
 .font-secondary-medium-02 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: calc(2rem + 1.736vw);
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .font-secondary-medium-03 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 24px;
   font-weight: 500;
   line-height: 1.4;
 }
 
 .font-secondary-medium-04 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 19px;
   font-weight: 500;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .font-secondary-medium-05 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .font-secondary-medium-06 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 28px;
   font-weight: 500;
   line-height: 1.2;
 }
 
 .font-secondary-medium-07 {
-  font-family: var(--font-secondary-regular);
+  font-family: var(--font-secondary-semibold);
   font-size: 35px;
   font-weight: 500;
   line-height: 1.2;

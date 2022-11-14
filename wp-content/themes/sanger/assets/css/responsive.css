@@ -114,6 +114,7 @@
 
   .about-team__social li a:hover {
     background-color: var(--color-text_link);
+    color: #fff;
   }
 
   .contact-office__item:hover .contact-office__btn-text {
@@ -406,6 +407,12 @@
     width: 100%;
     max-width: 400px;
     right: calc(-100% - 50px);
+  }
+  
+  .about-adviser__info {
+  /*height: auto;*/
+  /*padding: 50px 12px;*/
+  max-width: none;
   }
 }
 

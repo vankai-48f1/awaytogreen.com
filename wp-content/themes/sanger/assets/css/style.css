@@ -1763,7 +1763,7 @@ body {
   background-color: #fff;
 }
 
-.page-gallery__main-content *:not(h1,h2,h3,h4,h5,h6,strong,b,a) {
+.page-gallery__main-content *:not(h1, h2, h3, h4, h5, h6, strong, b, a) {
   color: var(--color-light-03);
 }
 
@@ -1793,6 +1793,93 @@ body {
 
 .page-our-team__see-more {
   padding: calc(3vw + 70px) 0;
+}
+
+.about-adviser__item {
+  overflow: hidden;
+}
+
+.about-adviser__avatar,
+.about-adviser__info {
+  height: 545px;
+}
+
+.about-adviser__avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.about-adviser__info {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 12px;
+}
+
+.about-adviser__item-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.about-adviser__item-col {
+  width: 100%;
+}
+
+.about-adviser__position {
+    color: #FF0005;
+}
+
+.about-adviser__profile {
+    overflow-y: auto;
+}
+
+.about-adviser__profile::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(160, 160, 160, 0.3);
+  background-color: #f5f5f5;
+}
+
+.about-adviser__profile::-webkit-scrollbar {
+  width: 10px;
+  background-color: #c4c4c4;
+}
+
+.about-adviser__profile::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border: 1px solid #fff;
+}
+
+.awtg-overlay-image {
+    position: relative;
+    z-index: 2;
+}
+
+.awtg-overlay-image:after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: rgba(0 , 0, 0, 0.2);
+    z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .about-adviser__item:nth-child(even) .about-adviser__item-row {
+    flex-direction: row-reverse;
+  }
+
+  .about-adviser__item:nth-child(even) .about-adviser__info {
+    margin-left: auto;
+  }
+
+  .about-adviser__info {
+    padding: 50px;
+  }
+
+  .about-adviser__item-col {
+    width: 50%;
+  }
 }
 /* === Portfolio =================== */
 /* === Portfolio =================== */
@@ -1885,7 +1972,7 @@ body {
   padding-bottom: 70px;
 }
 
-.single-portfolio .post-nav__item .prev-icon, 
+.single-portfolio .post-nav__item .prev-icon,
 .single-portfolio .post-nav__item .next-icon {
   color: var(--color-dark-01);
   text-transform: capitalize;
@@ -1893,11 +1980,11 @@ body {
 }
 
 .single-portfolio .post-nav__item .prev-icon::before {
-  content: '\EA07';
+  content: "\EA07";
 }
 
 .single-portfolio .post-nav__item .next-icon::after {
-  content: '\E9A4';
+  content: "\E9A4";
 }
 
 /* ==== Page Genarate ===== */

@@ -17,7 +17,7 @@ get_header();
                 <div class="container">
                     <?php
                     if (have_rows('office')) : ?>
-                        <div class="contact-office__list row">
+                        <div class="contact-office__list row justify-content-center">
                             <?php while (have_rows('office')) : the_row(); ?>
                                 <?php
                                 $office_image = get_sub_field('image');
