@@ -47,5 +47,15 @@
       ggMapUrl.searchParams.set('q', coordinates);
       $('.contact__information-map > iframe').attr('src', ggMapUrl.toString());
     })
+
+    // Toggle layout search
+    $('.hd-search-btn').on('click', function(e) {
+        e.preventDefault();
+        $('.layout-search').addClass('layout-search-active')
+    })
+    $('.layout-search__close').on('click', function(e) {
+        e.preventDefault();
+        $('.layout-search').removeClass('layout-search-active')
+    })
   })
 })(jQuery)

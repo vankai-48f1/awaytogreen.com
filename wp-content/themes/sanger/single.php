@@ -40,13 +40,14 @@
                     <div class="row">
 
                         <!-- Blog Entries Column -->
+                        <div class="col-lg-2"></div>
                         <div class="col-lg-8 col-12">
 
                             <?php get_template_part('template-parts/content-single', get_post_format()); ?>
 
                         </div>
-
-                        <?php get_sidebar() ?>
+                        <div class="col-lg-2"></div>
+                        <!-- < ?php get_sidebar() ?> -->
 
                     </div>
                     <!-- /.row -->

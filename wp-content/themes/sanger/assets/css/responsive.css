@@ -120,7 +120,7 @@
   .contact-office__item:hover .contact-office__btn-text {
     text-indent: 0px;
   }
-  
+
   .post-cate-hd a:hover {
     background-color: #fff;
     color: #000;
@@ -300,7 +300,17 @@
   }
 
   .page-header {
-    padding: 90px 0;
+    /* padding: 90px 0; */
+    padding-top: 35%;
+  }
+
+  .header-category {
+    /* padding-top: 35%; */
+    background-position: right center !important;
+  }
+
+  .page-header__down {
+    bottom: -25px;
   }
 }
 
@@ -319,10 +329,12 @@
 
   .hm-section-5__form {
     padding: 0;
+    position: static;
   }
 
   .hm-section-5__body {
     background: none !important;
+    padding-top: 0;
   }
 
   .hm-section-5__form input[type="email"],
@@ -408,11 +420,11 @@
     max-width: 400px;
     right: calc(-100% - 50px);
   }
-  
+
   .about-adviser__info {
-  /*height: auto;*/
-  /*padding: 50px 12px;*/
-  max-width: none;
+    /*height: auto;*/
+    /*padding: 50px 12px;*/
+    max-width: none;
   }
 }
 
@@ -476,10 +488,25 @@
   .portfolio-item:first-child {
     grid-row: auto;
   }
-  
+
   .portfolio-item:nth-child(4) {
     grid-row: auto;
     grid-column: auto;
   }
-  
+
+  .about-partner__list .slick-prev,
+  .about-partner__list .slick-next {
+    background-color: #fff;
+    box-shadow: 0 0 5px 0 rgb(0 0 0 / 25%);
+    width: 30px;
+    height: 30px;
+  }
+
+  .about-partner__list .slick-prev {
+    left: 0;
+  }
+
+  .about-partner__list .slick-next {
+    right: 0;
+  }
 }

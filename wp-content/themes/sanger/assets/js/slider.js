@@ -164,13 +164,32 @@
 
     // Slider tertiary
     $('.about-partner__list').slick({
-      dots: true,
+      rows: 1,
+      dots: false,
       arrows: true,
       infinite: false,
-      slidesToShow: 6,
-      slidesToScroll: 6,
+      slidesToShow: 8,
+      slidesToScroll: 8,
       // autoplay: true,
       autoplaySpeed: 5000,
+      responsive: [
+        {
+          breakpoint: 1200,
+          settings: {
+            rows: 2,
+            slidesToShow: 4,
+            slidesToScroll: 4
+          }
+        },
+        {
+          breakpoint: 992,
+          settings: {
+            rows: 4,
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        }
+      ]
     })
 
     // Slider fourth

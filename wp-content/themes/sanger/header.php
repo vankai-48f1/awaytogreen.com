@@ -80,10 +80,10 @@
                             </div>
                             <div class="header-right">
                                 <div class="header-right__inner">
-                                    <button class="hd-cart-btn">
+                                    <!-- <button class="hd-cart-btn">
                                         <span class="cart-btn-icon"></span>
                                         <span class="hd-cart-short">0</span>
-                                    </button>
+                                    </button> -->
                                     <button class="hd-search-btn"><span class="search-btn-icon"></span></button>
                                     <button class="hd-hamburger-btn hd-hamburger-btn--style">
                                         <span class="hamburger-btn-icon">
@@ -101,3 +101,6 @@
         <!-- Header fixed right partial-->
         <?php get_template_part("template-parts/panel", "bar") ?>
     </header>
+
+    <!-- Layout Search -->
+    <?php get_template_part("template-parts/layout", "search") ?>

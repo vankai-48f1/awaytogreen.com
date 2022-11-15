@@ -148,27 +148,28 @@ get_header();
                                     <div class="about-team__item">
                                         <div class="about-team__item-inner">
                                             <div class="about-team__avatar-wrap mb-3">
-                                                <div class="about-team__avatar">
-                                                    <?php if ($avatar) : ?>
+                                                <?php if ($avatar) : ?>
+                                                    <div class="about-team__avatar">
                                                         <img src="<?php echo $avatar ?>" class="img-absolute-option" alt="">
+                                                    </div>
+                                                    <!-- Social -->
+                                                    <?php if (have_rows('social')) : $i = 0; ?>
+                                                        <ul class="about-team__social social">
+                                                            <?php while (have_rows('social')) : the_row();
+                                                                $icon = get_sub_field('icon');
+                                                                $link = get_sub_field('link');
+                                                            ?>
+                                                                <?php if ($icon) : ?>
+                                                                    <li class="social__item">
+                                                                        <a href="<?php echo $link ? $link : "#"; ?>" style="transition-delay: <?php echo $i * 0.05 ?>s;">
+                                                                            <i class="<?php echo $icon ?>"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                <?php endif; ?>
+                                                            <?php $i++;
+                                                            endwhile; ?>
+                                                        </ul>
                                                     <?php endif; ?>
-                                                </div>
-                                                <!-- Social -->
-                                                <?php if (have_rows('social')) : $i = 0;?>
-                                                    <ul class="about-team__social social">
-                                                        <?php while (have_rows('social')) : the_row();
-                                                            $icon = get_sub_field('icon');
-                                                            $link = get_sub_field('link');
-                                                        ?>
-                                                            <?php if ($icon) : ?>
-                                                                <li class="social__item">
-                                                                    <a href="<?php echo $link ? $link : "#"; ?>" style="transition-delay: <?php echo $i * 0.05 ?>s;">
-                                                                        <i class="<?php echo $icon ?>"></i>
-                                                                    </a>
-                                                                </li>
-                                                            <?php endif; ?>
-                                                        <?php $i++; endwhile; ?>
-                                                    </ul>
                                                 <?php endif; ?>
                                             </div>
 

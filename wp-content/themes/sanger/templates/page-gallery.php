@@ -10,7 +10,9 @@ get_header() ?>
 
         <?php while (have_posts()) : the_post(); ?>
             <!-- Header -->
-            <?php get_template_part('template-parts/header/header', 'page'); ?>
+            <div class="mb-5">
+                <?php get_template_part('template-parts/header/header', 'page'); ?>
+            </div>
 
             <div class="container">
 
