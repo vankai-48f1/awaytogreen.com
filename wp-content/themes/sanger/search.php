@@ -1,52 +1,48 @@
 <?php get_header() ?>
-<!-- Page Content -->
-  <div class="container">
-    
-      <div class="row">
+<div class="page-search">
+    <!-- Header -->
+    <div class="page-search__header">
+        <?php
+        $param = array(
+            'title' => 'Search: ' . get_search_query()
+        )
+        ?>
+        <?php get_template_part('template-parts/header/header', 'page-dynamic', $param); ?>
+    </div>
+    <!-- Page Content -->
+    <div class="page-search__posts" style="padding: 70px 0 0;">
+        <div class="container">
+            <?php if (have_posts()) : ?>
+                <div class="row">
+                    <?php while (have_posts()) : the_post(); ?>
 
-        <!-- Blog Entries Column -->
-        <div class="col-md-8">
-          
-          <h1 class="my-2 mb-4 page-header">
-            Tìm kiếm:
-            <small><?php the_search_query(); ?></small>
-          </h1>
+                        <div class="col-lg-4 col-md-6 col-12 mb-4">
+                            <?php get_template_part('template-parts/article', 'part'); ?>
+                        </div>
 
-          <?php if ( have_posts() ) : ?>
-
-            <?php while ( have_posts() ) : the_post(); ?>
-
-                  <?php get_template_part( 'template-parts/content', get_post_format() ); ?>
-
-            <?php endwhile; ?>
-
-          <?php else: ?>
-              
-              <p>
-                Không có bài viết nào phù hợp với từ khóa: <strong><?php the_search_query(); ?></strong>
-              </p>
-
-              <form action="<?php bloginfo('url'); ?>/">     
-                <div class="input-group">
-                    <input type="text" class="form-control" value="<?php the_search_query(); ?>" name="s" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-secondary" type="button">Go!</button>
-                    </span>
+                    <?php endwhile; ?>
                 </div>
-              </form>
+                <!-- /.row -->
+            <?php else : ?>
 
-          <?php endif; ?>
+                <h2 class="mb-3">
+                    Không có bài viết nào phù hợp với từ khóa: <strong><?php the_search_query(); ?></strong>
+                </h2>
 
-          <!-- Pagination -->
-          <?php mtem_pagination() ?>
+                <form action="<?php bloginfo('url'); ?>/">
+                    <div class="input-group">
+                        <input type="text" class="form-control" value="<?php the_search_query(); ?>" name="s" placeholder="Search for..." style="font-size: 18px;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-secondary" type="button"><span class="search-btn-icon"></span></button>
+                        </span>
+                    </div>
+                </form>
 
+            <?php endif; ?>
+            <!-- Pagination -->
+            <?php post_pagination() ?>
         </div>
-
-        <?php get_sidebar() ?>
-
-      </div>
-      <!-- /.row -->
-
-  </div>
+    </div>
+</div>
 <!-- /.container -->
 <?php get_footer() ?>
